@@ -31,11 +31,11 @@ public class App {
         // Mostrar la estructura del tren
         System.out.println("****************Estructura de Asientos del Tren****************");
         System.out.println("Vagón 1:");
-        vagon1.mostrarEstructuraAsientos();
+         vagon1.mostrarEstructuraAsientos();
         System.out.println("Vagón 2:");
-        vagon2.mostrarEstructuraAsientos();
+       // vagon2.mostrarEstructuraAsientos();
         System.out.println("Vagón 3:");
-        vagon3.mostrarEstructuraAsientos();
+        //vagon3.mostrarEstructuraAsientos();
         System.out.println("****************************************************************");
         
     
