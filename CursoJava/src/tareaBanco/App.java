@@ -14,9 +14,10 @@ public class App {
 	        // Crear dos objetos Cliente
 	        Cliente cliente1 = new Cliente("12345678A", "Juan", "Pérez", "González", dir1, contacto1, 1500.00);
 	        Cliente cliente2 = new Cliente("87654321B", "María", "Lopez", "Martínez", dir2, contacto2, 2000.50);
-	        
+	       
 	        cliente1.crearYEnviarCorreo();
-	        cliente2.imprimirBandejaEntrada();
+	        cliente2.buzonPersonal.imprimirHashEntrada();
+	        
 		
 		
 		/*

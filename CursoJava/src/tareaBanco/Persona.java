@@ -20,6 +20,7 @@ public class Persona implements Imprimible<Mensaje> , Maileable,Enviable {
 	protected Contacto cont;
 	protected Telefono numeroTelefono;
 	protected Mail email;
+	protected Buzon buzonPersonal;
 	protected ArrayList <Mensaje> bandeja_entrada;
 	protected ArrayList<Mensaje> bandeja_salida;
 	
@@ -42,10 +43,17 @@ public class Persona implements Imprimible<Mensaje> , Maileable,Enviable {
 		this.bandeja_entrada = new ArrayList<>(); //que guarde 5 numeros
 		this.bandeja_salida = new ArrayList<>();
 		listaPersonas.add(this);
+		this.buzonPersonal= new Buzon(this);
 	}
 	
 	//getter y setters
 	
+	public Buzon getBuzonPersonal() {
+		return buzonPersonal;
+	}
+
+
+
 	public ArrayList<Mensaje> getBandeja_entrada() {
 		return bandeja_entrada;
 	}
@@ -155,7 +163,6 @@ public class Persona implements Imprimible<Mensaje> , Maileable,Enviable {
 		System.out.println("Escribe tu correo electronico con el que te quieres registrar");
 		String nombreMail=sc.next();
 		Mail nuevoMail= new Mail(nombreMail);
-	
 		return nuevoMail;
 	}
 	
@@ -190,10 +197,28 @@ public class Persona implements Imprimible<Mensaje> , Maileable,Enviable {
 	        return null; 
 	   }
 	 
+	 public void crearYEnviarCorreoHash() {
+	        Mensaje mensaje = crearCorreo();
+	        if (mensaje != null) {
+	            EnviarRecibirMensajeHash(mensaje);  
+	        } else {
+	            System.out.println("No se pudo crear el correo.");
+	        }
+	    }
+	
+
+	 
 	  public void imprimirBandejaEntrada() {
 		   System.out.println("Lista de correos:");
 	        imprimirLista(bandeja_entrada); 
 	  }
+	  
+	  public void imprimirBandejaSalida() {
+		   System.out.println("Lista de correos:");
+	        imprimirLista(bandeja_salida); 
+	  }
+	  
+	
 	
 
 	

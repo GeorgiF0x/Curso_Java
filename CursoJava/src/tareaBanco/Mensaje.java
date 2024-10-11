@@ -6,6 +6,7 @@ public class Mensaje {
 	private Persona destino;
 	private String asunto;
 	private String contenido;
+	//private Boolean leido;
 	
 	
 	
@@ -15,6 +16,7 @@ public class Mensaje {
 		this.destino = destino;
 		this.asunto = asunto;
 		this.contenido = contenido;
+		//this.leido=false;
 	}
 
 	public Mensaje() {

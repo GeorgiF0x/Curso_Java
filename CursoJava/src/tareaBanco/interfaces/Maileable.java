@@ -27,8 +27,12 @@ public interface Maileable  {
              System.out.println("Escribe el contenido:");
              String contenido = sc.nextLine();
              nuevoMensaje = new Mensaje(origen, destinatario, asunto, contenido);            
+        }else {
+        	System.out.println("Correo no existe");
         }
 		return nuevoMensaje;
     }
+	
+	
 	
 }
