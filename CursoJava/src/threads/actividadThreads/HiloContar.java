@@ -45,7 +45,7 @@ public class HiloContar extends Thread {
     @Override
     public void run() {
         try {
-      
+        	inicializarConexion();
             int cantidad = contarRegistros();
             System.out.println("Número de registros en la tabla 'alumno': " + cantidad);
         } catch (SQLException e) {
@@ -72,23 +72,31 @@ public class HiloContar extends Thread {
 
 class HiloCreaFichero extends Thread {
 
-	private boolean terminado=false;
+	private  static boolean terminado=false;
 	@Override
 	public void run() {
 	  
 	        // Verificamos si el nombre del hilo es "nuevoHilo!" y si no ha terminado
-	        if (Thread.currentThread().getName().equals("nuevoHilo") &&  !terminado) {
-	   
-	            terminado=true;
-	            System.out.println("Ejecutando hilo " + Thread.currentThread().getName());
-	        } else if (Thread.currentThread().getName().equals("nuevoHilo2") && !terminado) {
-	     
-	            System.out.println("Ejecutando hilo " + Thread.currentThread().getName());
-	            terminado=true;
-	        } else {
-	        
-		            System.out.println("Ejecutando hilo " + Thread.currentThread().getName());
-	        }
+	        try {
+				if (Thread.currentThread().getName().equals("nuevoHilo") &&  !terminado) {
+					creaFichero();
+				    System.out.println("Ejecutando hilo " + Thread.currentThread().getName());
+				    terminado=true;
+				}
+				if (Thread.currentThread().getName().equals("nuevoHilo2") && !terminado) {
+					creaFichero();
+				    System.out.println("Ejecutando hilo " + Thread.currentThread().getName());
+				    terminado=true;
+				}
+				if(Thread.currentThread().getName().equals("nuevoHilo3") && !terminado) {
+					  creaFichero();
+				      System.out.println("Ejecutando hilo " + Thread.currentThread().getName());
+				      terminado=true;
+				}
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 	    
 	}
 
@@ -112,9 +120,10 @@ class HiloCreaFichero extends Thread {
 	    return true;
 	}
 	
+	
+}
 
-
-
+class HiloInsert extends Thread{
 	
 	
 	
